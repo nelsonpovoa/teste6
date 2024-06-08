@@ -29,6 +29,15 @@ public class LoginController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login2(ModelMap model) {
+		if (this.isDebug) {
+			LOGGER.info("[GET - View] : login");
+		}
+
+		return "login";
+	}
+	
 	@GetMapping("/loja")
 	public String homeLoja2(ModelMap model, RedirectAttributes redirectAttributes, Authentication authentication)
 			throws IOException {

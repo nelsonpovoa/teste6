@@ -45,7 +45,7 @@
 	
 			<div class="form-group" style="padding-top: 100px;padding-bottom: 60px">
 				<div class="col-sm">
-					<img src="/images/mycard-web.png" width="40"> MyCard
+					<img src="/images/mycard-web.png" width="40"> MyCard templates !!!!
 				</div>
 			</div>
 			

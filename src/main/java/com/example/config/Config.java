@@ -2,21 +2,13 @@ package com.example.config;
 
 import java.util.logging.Logger;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 
@@ -52,12 +44,13 @@ private static final  Logger logger = Logger.getLogger(Config.class.getName());
 				                    "/register/**",
 				                    "/loja").
 							permitAll()
+							.anyRequest().permitAll()
 								//.requestMatchers("/**").permitAll()
 						//		.requestMatchers(HttpMethod.GET, "/account/**").permitAll()
 						//        .requestMatchers(HttpMethod.GET, "/balance").permitAll()
 						        //.requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
 						        //.requestMatchers(HttpMethod.POST, "/product").hasRole("ADMIN")
-						        .and().formLogin().and().httpBasic();
+						        .and().formLogin().loginPage("/login").and().httpBasic();
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -71,6 +64,10 @@ private static final  Logger logger = Logger.getLogger(Config.class.getName());
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
+	}
+
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().requestMatchers("/images/**", "/js/**", "/webjars/**");
 	}
 	
 	//@Bean

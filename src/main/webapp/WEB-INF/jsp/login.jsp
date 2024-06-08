@@ -41,11 +41,11 @@
 
 	<div style="width: 40%;height:80%; margin: auto;text-align: center">
 	
-		<form id="formLogin" action="/mycard-api/login" method="post">
+		<form id="formLogin" action="/login" method="post">
 	
 			<div class="form-group" style="padding-top: 100px;padding-bottom: 60px">
 				<div class="col-sm">
-					<img src="/images/mycard-web.png" width="40"> MyCard
+					<img src="/images/mycard-web.png" width="40"> MyCard local login jsp
 				</div>
 			</div>
 			

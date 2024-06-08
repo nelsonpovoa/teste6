@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@RestController
+@Controller
 public class HomeController {
 
 	private final static Logger LOGGER = Logger.getLogger(HomeController.class.getName());
@@ -22,7 +22,9 @@ public class HomeController {
 	
 	@GetMapping("/account")
 	public String account() {
-		return "Hi Welcome";
+		//return "Hi Welcome";
+		
+		return "account";
 	}
 	
 	@GetMapping("/balance")
